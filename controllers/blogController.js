@@ -13,8 +13,7 @@ exports.showPosts = async (req,res)=>{
 
 }
 exports.addPost = async (req,res,next)=>{
-console.log('==',req.headers)
-console.log('==',req.body)
+
     try {
         const data = await blog.create(req.body)
         res.json({message:'Post Created !!', data:data})
@@ -26,7 +25,7 @@ console.log('==',req.body)
 }
 
 exports.updatePost = async (req,res)=>{
-    console.log('==',req.headers)
+  
 console.log('==',req.body)
     try {
         const query = {};
@@ -43,7 +42,7 @@ console.log('==',req.body)
 }
 
 exports.deletePost = async (req,res)=>{
-    console.log(req.headers,'delete=>')
+
     try {
         const data = await blog.deleteOne({_id:req.params.id})
         res.json({message:'Post Deleted !!',data:data})
